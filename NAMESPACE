@@ -3,5 +3,8 @@
 export(bplot)
 export(corr_cv)
 export(corr_cvplot)
+export(groupsum)
 export(se)
+import(dplyr)
 import(ggplot2)
+import(magrittr)

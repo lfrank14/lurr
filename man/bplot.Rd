@@ -4,9 +4,11 @@
 \alias{bplot}
 \title{Plot bargraph}
 \usage{
-bplot(datset, x, y, group = NULL, e, xlab = NULL, ylab = NULL)
+bplot(data, x, y, group = NULL, e, xlab = NULL, ylab = NULL)
 }
 \arguments{
+\item{data}{A dataframe}
+
 \item{x}{The independent variable to be plotted on the x axis. Must be categorical.}
 
 \item{y}{The dependent variable to be plotted on the y axis.}
@@ -16,8 +18,6 @@ bplot(datset, x, y, group = NULL, e, xlab = NULL, ylab = NULL)
 \item{xlab}{A title for the x-axis. If not defined, will return name of x variable.}
 
 \item{ylab}{A title for the y-axis. If not defined, will return name of y variable.}
-
-\item{data}{A dataframe}
 
 \item{se}{The standard error variable to create error bars.}
 }

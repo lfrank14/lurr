@@ -11,5 +11,6 @@ Imports:
   tidyverse,
   ggthemes,
   psych,
-  ggplot2
+  ggplot2,
+  magrittr
 RoxygenNote: 6.0.1

@@ -18,17 +18,16 @@
 #' bplot(datset = aa, x = "condition", y = "accuracy", e = "se_accuracy",
 #'         xlab = "Experimental Condition", ylab = "Mean Accuracy")
 
-# column<-eval(substitute(column),data, parent.frame())
-bplot <- function(datset, x, y, group = NULL, e, xlab = NULL, ylab = NULL) {
+bplot <- function(data, x, y, group = NULL, e, xlab = NULL, ylab = NULL) {
   
-  x1 <- eval(substitute(x), datset, parent.frame())
-  y1 <- eval(substitute(y), datset, parent.frame())
-  e1 <- eval(substitute(e), datset, parent.frame())
-  g1 <- eval(substitute(group), datset, parent.frame())
+  x1 <- eval(substitute(x), data, parent.frame())
+  y1 <- eval(substitute(y), data, parent.frame())
+  e1 <- eval(substitute(e), data, parent.frame())
+  g1 <- eval(substitute(group), data, parent.frame())
   
   if(missing(group)){
     
-    ggplot(data = datset, aes(x = x1, y = y1, fill = x1)) +
+    ggplot(data = data, aes(x = x1, y = y1, fill = x1)) +
       geom_bar(stat = "identity", show.legend = FALSE) +
       geom_linerange(aes(ymin = y1 - e1, ymax = y1 + e1)) +
       theme_classic() +
@@ -40,7 +39,7 @@ bplot <- function(datset, x, y, group = NULL, e, xlab = NULL, ylab = NULL) {
     
   } else {
     
-    ggplot(data = datset, aes(x = x1, y = y1, fill = g1)) +
+    ggplot(data = data, aes(x = x1, y = y1, fill = g1)) +
       geom_bar(stat = "identity", show.legend = FALSE, position = "dodge") +
       geom_linerange(aes(ymin = y1 - e1, ymax = y1 + e1), 
                      position = position_dodge(width =  .9)) +
