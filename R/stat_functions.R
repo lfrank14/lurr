@@ -65,8 +65,8 @@ corr_cv <- function(x, y) {
 
 groupsum <- function(data, y, g1, g2 = NULL, g3 = NULL, g4 = NULL) {
   
-  mlab <- paste0("m_", deparse(substitute(y)))
-  selab <- paste0("se_", deparse(substitute(y)))
+  #mlab <- paste0("m_", deparse(substitute(y)))
+  #selab <- paste0("se_", deparse(substitute(y)))
   
   g1 <- substitute(g1)
   y1 <- substitute(y)
@@ -75,8 +75,8 @@ groupsum <- function(data, y, g1, g2 = NULL, g3 = NULL, g4 = NULL) {
     
     datset <- data %>% 
       group_by(!! g1) %>% 
-      summarize(mlab = mean(!! y1),
-                selab = se(!! y1))
+      summarize(mean = mean(!! y1),
+                se = se(!! y1))
     return(data.frame(datset))
     
   } else if(missing(g3)) {
@@ -84,8 +84,8 @@ groupsum <- function(data, y, g1, g2 = NULL, g3 = NULL, g4 = NULL) {
     g2 <- substitute(g2)
     datset <- data %>% 
       group_by(!! g1, !! g2) %>% 
-      summarize(mlab = mean(!! y1),
-                selab = se(!! y1))
+      summarize(mean = mean(!! y1),
+                se = se(!! y1))
     return(data.frame(datset))
     
   } else if(missing(g4)) {
@@ -94,8 +94,8 @@ groupsum <- function(data, y, g1, g2 = NULL, g3 = NULL, g4 = NULL) {
     g3 <- substitute(g3)
     datset <- data %>%
       group_by(!! g1, !! g2, !! g3) %>% 
-      summarize(mlab = mean(!! y1),
-                selab = se(!! y1))
+      summarize(mean = mean(!! y1),
+                se = se(!! y1))
     return(data.frame(datset))
     
   } else {
@@ -105,8 +105,8 @@ groupsum <- function(data, y, g1, g2 = NULL, g3 = NULL, g4 = NULL) {
     g4 <- substitute(g4)
     datset <- data %>% 
       group_by(!! g1, !! g2, !! g3, !! g4) %>% 
-      summarize(mlab = mean(!! y1),
-                selab = se(!! y1))
+      summarize(mean = mean(!! y1),
+                se = se(!! y1))
     return(data.frame(datset))
   }
 }
