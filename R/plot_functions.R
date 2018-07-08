@@ -27,7 +27,7 @@ bplot <- function(data, x, y, group = NULL, e, xlab = NULL, ylab = NULL) {
   
   if(missing(group)){
     
-    ggplot(data = data, aes(x = x1, y = y1, fill = x1)) +
+    ggplot2::ggplot(data = data, aes(x = x1, y = y1, fill = x1)) +
       geom_bar(stat = "identity", show.legend = FALSE) +
       geom_linerange(aes(ymin = y1 - e1, ymax = y1 + e1)) +
       theme_classic() +
@@ -39,7 +39,7 @@ bplot <- function(data, x, y, group = NULL, e, xlab = NULL, ylab = NULL) {
     
   } else {
     
-    ggplot(data = data, aes(x = x1, y = y1, fill = g1)) +
+    ggplot2::ggplot(data = data, aes(x = x1, y = y1, fill = g1)) +
       geom_bar(stat = "identity", show.legend = FALSE, position = "dodge") +
       geom_linerange(aes(ymin = y1 - e1, ymax = y1 + e1), 
                      position = position_dodge(width =  .9)) +
@@ -76,7 +76,7 @@ corr_cvplot <- function(x, y, xlab = NULL, ylab = NULL) {
   r <- corr_cv(x, y)
   p <- psych::r.test(n = nrow(datset), r)$p
 
-  ggplot(data = datset, aes(x = datset[[1]], y = datset[[2]])) +
+  ggplot2::ggplot(data = datset, aes(x = datset[[1]], y = datset[[2]])) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
     theme_classic() +

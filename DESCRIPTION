@@ -1,7 +1,7 @@
 Package: lurr
 Title: Lurr's Random Assortment of Functions
 Version: 0.0.0.9000
-Authors@R: person("Lea", "Frank", email = "first.last@example.com", role = c("aut", "cre"))
+Authors@R: person("Lea", "Frank", email = "leafrank14@gmail.com", role = c("aut", "cre"))
 Description: This package contains helpful functions that I can use in everyday work. 
 Depends: R (>= 3.5.0)
 License: What license is it under?
